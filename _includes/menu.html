@@ -1,0 +1,20 @@
+		<nav class="navbar navbar-expand-md bg-body-tertiary sticky-top">
+			<div class="container">
+				<a class="navbar-brand" href="index.html">Sorta Slow Studio</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="mainNav">
+					<ul class="navbar-nav ms-auto">
+						{% assign items = "games.html:Games,about.html:About Us,governance.html:Governance,sortition.html:Sortition,discord.html:Discord" | split: "," %}
+						{% for item in items %}
+						{% assign parts = item | split: ":" %}
+						{% assign href = parts[0] %}
+						{% assign label = parts[1] %}
+						{% assign path = "/" | append: href %}
+						<li class="nav-item"><a class="nav-link{% if page.url == path %} active" aria-current="page{% endif %}" href="{{ href }}">{{ label }}</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</nav>

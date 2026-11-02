@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Navagait to 127.0.0.1:4000 to test the site"
+sudo docker run --rm -it -p 4000:4000 -v "$PWD":/srv/jekyll jekyll/jekyll jekyll serve --host 0.0.0.0
+#jekyll serve --livereload
+
